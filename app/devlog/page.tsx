@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, Tag } from "lucide-react"
+import { PageTransition } from "@/components/page-transition"
 
 interface DevLog {
   title: string;
@@ -36,46 +37,48 @@ const devLogs: DevLog[] = [
 
 export default function DevLog() {
   return (
-    <main className="min-h-screen p-8 md:p-24">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-4xl font-bold">개발 이야기</h1>
-          <Link href="/">
-            <Button variant="ghost">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              홈으로
-            </Button>
-          </Link>
-        </div>
+    <PageTransition>
+      <main className="min-h-screen p-8 md:p-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center justify-between mb-12">
+            <h1 className="text-4xl font-bold">개발 이야기</h1>
+            <Link href="/">
+              <Button variant="ghost">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                홈으로
+              </Button>
+            </Link>
+          </div>
 
-        <div className="space-y-8">
-          {devLogs.map((log, index) => (
-            <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="flex justify-between items-start mb-4">
-                <h2 className="text-2xl font-semibold">{log.title}</h2>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Calendar className="w-4 h-4" />
-                  <span>{log.date}</span>
+          <div className="space-y-8">
+            {devLogs.map((log, index) => (
+              <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex justify-between items-start mb-4">
+                  <h2 className="text-2xl font-semibold">{log.title}</h2>
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <Calendar className="w-4 h-4" />
+                    <span>{log.date}</span>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {log.summary}
+                </p>
+                
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <Tag className="w-4 h-4" />
+                    <span className="text-sm text-gray-500">{log.category}</span>
+                  </div>
+                  <Button variant="outline" size="sm">
+                    자세히 보기
+                  </Button>
                 </div>
               </div>
-              
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {log.summary}
-              </p>
-              
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <Tag className="w-4 h-4" />
-                  <span className="text-sm text-gray-500">{log.category}</span>
-                </div>
-                <Button variant="outline" size="sm">
-                  자세히 보기
-                </Button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </PageTransition>
   )
 } 
