@@ -17,9 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <AnimatePresence mode="wait">
-          {children}
-        </AnimatePresence>
+        {children}
       </body>
     </html>
   )
