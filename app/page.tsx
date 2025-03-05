@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Gamepad2, Info, Mail } from "lucide-react"
+import { Gamepad2, Info, Mail, Dices } from "lucide-react"
 import { PageTransition } from "@/components/page-transition"
 
 export default function Home() {
@@ -43,7 +43,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="flex gap-4">
+            <Link href="/minigame">
+              <Button variant="secondary">
+                <Dices className="mr-2 h-4 w-4" />
+                미니게임 하기
+              </Button>
+            </Link>
             <Link href="/contact">
               <Button variant="ghost">
                 <Mail className="mr-2 h-4 w-4" />

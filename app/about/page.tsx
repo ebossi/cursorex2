@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Gamepad2, ArrowLeft, Clock, Trophy } from "lucide-react"
 import { PageTransition } from "@/components/page-transition"
+import { ExpandableText } from "@/components/expandable-text"
 
 interface Game {
   title: string;
@@ -14,21 +15,21 @@ interface Game {
 const games: Game[] = [
   {
     title: "스페이스 어드벤처",
-    description: "무한한 우주를 탐험하며 적들과 싸우는 슈팅 게임",
+    description: "무한한 우주를 탐험하며 적들과 싸우는 슈팅 게임입니다. 다양한 무기 시스템과 적 패턴을 익히고, 보스와의 전투에서 승리하세요. 매 스테이지마다 새로운 도전이 기다립니다.",
     genre: "슈팅",
     releaseDate: "2024.03",
     thumbnail: "/games/space-adventure.jpg"
   },
   {
     title: "퍼즐 매스터",
-    description: "두뇌를 자극하는 다양한 퍼즐을 풀어보세요",
+    description: "두뇌를 자극하는 다양한 퍼즐을 풀어보세요. 총 100개의 레벨이 준비되어 있으며, 난이도가 점진적으로 증가합니다. 타임어택 모드에서 다른 플레이어들과 기록을 겨뤄보세요.",
     genre: "퍼즐",
     releaseDate: "2024.02",
     thumbnail: "/games/puzzle-master.jpg"
   },
   {
     title: "닌자 러너",
-    description: "끝없는 모험을 달리는 2D 플랫포머 게임",
+    description: "끝없는 모험을 달리는 2D 플랫포머 게임입니다.",
     genre: "플랫포머",
     releaseDate: "2024.01",
     thumbnail: "/games/ninja-runner.jpg"
@@ -59,10 +60,8 @@ export default function Games() {
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex-1">
                     <h2 className="text-2xl font-semibold mb-2">{game.title}</h2>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      {game.description}
-                    </p>
-                    <div className="flex items-center gap-4 mb-4">
+                    <ExpandableText text={game.description} maxLength={80} />
+                    <div className="flex items-center gap-4 mt-4">
                       <div className="flex items-center">
                         <Trophy className="w-4 h-4 mr-1" />
                         <span className="text-sm">{game.genre}</span>

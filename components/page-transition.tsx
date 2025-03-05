@@ -10,25 +10,15 @@ export function PageTransition({ children }: PageTransitionProps) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        key="page-transition"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{
-          duration: 0.2,
-          ease: "easeInOut"
+          duration: 0.15
         }}
-        className="w-full"
       >
-        <motion.div
-          initial={{ y: 10 }}
-          animate={{ y: 0 }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut"
-          }}
-        >
-          {children}
-        </motion.div>
+        {children}
       </motion.div>
     </AnimatePresence>
   )
