@@ -1,9 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 프로젝트 규칙 및 가이드라인
 
-## Getting Started
+## 컴포넌트 구성요소
 
-First, run the development server:
+### ShadCN Components
 
+- 모든 UI 컴포넌트는 [ShadCN](https://shadcn.com/) 라이브러리를 사용해야 합니다.
+- 컴포넌트 설치 전, `/components/ui` 디렉토리 내의 컴포넌트 목록을 확인해야 합니다.
+- 컴포넌트를 설치하려면 다음 명령어를 사용하세요:
+  - `npx shadcn@latest add`
+
+### 아이콘
+
+- 모든 아이콘은 [Lucide React](https://lucide-react.com/) 라이브러리를 사용해야 합니다.
+- 아이콘 임포트 방법: `import { IconName } from "lucide-react"`
+- 예시: `import { Search, Menu } from "lucide-react"`
+
+### 컴포넌트 구조
+
+- 모든 컴포넌트는 `/components` 디렉토리 내에 위치해야 합니다.
+- UI 컴포넌트는 `/components/ui` 디렉토리에 위치해야 합니다.
+- 페이지별 컴포넌트는 `/app` 디렉토리 내 해당 라우트에 위치해야 합니다.
+
+## 성능 및 유지 보수
+
+- 모든 컴포넌트는 TypeScript 타입을 정의해야 합니다.
+- 컴포넌트는 재사용 가능하도록 설계되어야 합니다.
+
+이 프로젝트에서는 다음의 규칙과 가이드라인을 준수합니다. 이 규칙들을 지키면, 코드의 유지 보수와 확장이 용이해질 것입니다!
+
+## 시작하기
+
+### 개발 서버 실행
 ```bash
 npm run dev
 # or
@@ -13,24 +40,3 @@ pnpm dev
 # or
 bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
